@@ -1,0 +1,734 @@
+<meta property="og:image" content="http://assets.wwf.org.uk/img/original/wear_it_wild_1.jpg" />
+<meta property="og:description" content="How wild are you?. Take WWF's quiz to discover how ferocious you really are.">
+
+<style>
+
+	#quiz {
+		height:440px;
+		margin: 0 !important;
+		overflow: hidden;
+		padding: 0 !important;
+		position: relative;
+		width:100%;
+	}
+	
+		.no-js #quiz { display:none; }
+	
+	.needsjs { 
+		background: #f5f5eb;
+		display:none;
+		margin: 0 !important;
+		overflow: hidden;
+		padding: 220px 10% !important;
+		position: relative;
+		width:80%;
+	}
+		
+		.no-js .needsjs { display:block }
+	
+		#quiz .panel {
+			background: #8CC63F;
+			height:100%;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+				left:100%;
+			width: 100%;
+			z-index: 1;
+		}
+		
+			#quiz .panel.resultspanel { left:0; z-index: 0; text-align: center; }
+	
+			#quiz .panel.current { left:0; }
+	
+			#quiz .panel.completed { left:-100%; }
+		
+			#quiz .panel img {
+				float:right;
+				margin:0;
+			}
+			
+			#quiz .panel .question {
+				width:54%;
+				/*height: 100%;*/
+				padding: 20px 3%;
+				position: relative;
+			}
+					
+			#quiz .panel .enews {
+				background:none !important;
+				padding:20px 3%;
+				text-align: center;
+				width:94%;
+			}
+			
+			#quiz .panel .image {
+				background-size:cover;
+				background-repeat: no-repeat;
+				float:right;
+				height:100%;
+				width:40%;
+			}
+			
+				#quiz .panel .image .copyright {
+					font-size:0.7em;
+					color:white;
+					text-shadow: black 0px 0px 2px;
+					position: absolute;
+						bottom:5px;
+						right:5px;
+				}
+			
+				#quiz .panel.resultspanel .question {
+					text-align: center;
+				}
+				
+				#quiz .panel.resultspanel .question p { text-align: left; }
+			
+				#quiz .panel .question h3, .actionspanel h2, .enews h2 {
+					color: #fff;
+					font-family: 'WWFRegular', Arial, sans-serif;
+					font-size: 2em;
+					font-style: normal;
+					font-weight: normal;
+					line-height: 1.1;
+					margin: 0 0 20px;
+					text-align: center;
+  					text-transform: uppercase;
+				}
+						
+					.enews h2 { font-size:2.8em; }
+					
+					.enews p, .enews a { text-align: center; font-family: 'Open Sans', sans-serif; }
+					
+					.enews label { 
+						width: 14%;
+						height: 30px;
+						float: left;
+						margin: 10px 0 0 10%;
+						background: #d8682a;
+						padding: 5px 3%;
+						color: white;
+						font-family: 'WWFRegular', Arial, sans-serif;
+						font-size: 1.5em;
+						text-align: right;
+					}
+					
+					.enews input[type="text"], .enews input[type="email"] { 
+						width: 60%; 
+						height:40px; 
+						float:right; 
+						margin: 10px 10% 0 0; 
+						padding: 5px 3%; 
+					}
+					
+					.enews input[type="submit"] {
+						background: #d8682a !important;
+						border: none;
+						border-bottom: solid 3px #2d2d2d;
+						border-radius: 5px !important;
+							-webkit-border-radius: 5px !important;
+						box-shadow: none;
+						clear: right;
+						color: white;
+						cursor: pointer;
+						display: block;
+						float: none !important;
+						font-family: 'WWFRegular', Arial, sans-serif;
+						font-size: 1.8em;
+						height: auto;
+						margin: 10px auto !important;
+						padding: 8px 20px;
+						top: 10px;
+						line-height: normal;
+						position: relative;
+						width: auto;
+					}
+					
+					.subtlelink {
+						background: white;
+						background: rgba(255,255,255,0.75);
+						border: solid 1px rgb(145, 145, 145);
+						color: rgb(145, 145, 145);
+						cursor: pointer;
+						display: inline-block;
+						margin: 10px auto;
+						padding: 6px 10px;
+						font-size: 0.8em;
+					}
+					
+					.enews p.dataprotect {
+						margin-top: 17px;
+						font-size: 0.8em;
+					}
+				
+				#quiz .panel.resultspanel .question h3 {
+					display: inline-block;
+					font-size: 3em;
+					position: relative;
+				}
+				
+				#quiz .panel.resultspanel .question p, .actionspanel p {
+					font-family: 'Open Sans', sans-serif;
+					line-height: 1.5em;
+				}
+				
+					#quiz .panel.resultspanel .question h3:before,#quiz .panel.resultspanel .question h3:after{
+						content: "\f02e";
+						display: inline-block;
+						font-size: 0.5em;
+						font-family: FontAwesome;
+						font-style: normal;
+						font-weight: normal;
+						line-height: 1;
+						position: absolute;
+							top: 0.8em;
+						text-align: center;
+						-webkit-font-smoothing: antialiased;
+							-moz-osx-font-smoothing: grayscale;
+					}
+					
+						#quiz .panel.resultspanel .question h3:after{
+								right: -1em;
+							-ms-transform: rotate(-90deg); /* IE 9 */
+							-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+							-mos-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+							transform: rotate(-90deg);
+						}
+					
+						#quiz .panel.resultspanel .question h3:before{
+								left: -1em;
+							-ms-transform: rotate(90deg); /* IE 9 */
+							-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+							-mos-transform: rotate(90deg); /* Chrome, Safari, Opera */
+							transform: rotate(90deg);
+						}
+						
+						.lt-ie9 #quiz .panel.resultspanel .question h3:before,.lt-ie9 #quiz .panel.resultspanel .question h3:after { display:none; }
+				
+				#quiz .panel .question label {
+					background: white;
+					border-bottom: #c8c8c8 2px solid;
+					cursor: pointer;
+					display: block;
+					font-family: 'Open Sans', sans-serif;
+					font-size: 0.9em;
+					margin: 0 auto;
+					text-align: center;
+					text-transform: uppercase;
+					padding: 0.8em 3%;
+					position: relative;
+					width: 260px;
+				}
+				
+					#quiz .panel .question label:hover { font-weight: 600; }
+				
+					#quiz .panel .question input[type="radio"]:checked + label {
+						background: #d8682a;
+						border-bottom: #d8682a 2px solid;
+						/*box-shadow: black 0 0 3px;
+						box-shadow: rgba(0,0,0,0.5) 0 0 3px;*/
+						color: white;
+						font-size: 1.2em;
+						padding-top:0.85em;
+						padding-bottom:0.85em;
+						margin-top: -0.4em;
+						margin-bottom: -0.4em;
+						width: 280px;
+						z-index: 1;
+					}
+				
+						#quiz .panel .question input[type="radio"]:checked + label:hover { font-weight: 400; }
+					
+					/*#quiz .panel .question label:first-of-type {
+						border-top-left-radius: 5px;
+						border-top-right-radius: 5px;
+					}
+					
+					#quiz .panel .question label:last-of-type {
+						border-bottom-left-radius: 5px;
+						border-bottom-right-radius: 5px;
+						border-bottom: 0px;
+					}*/
+		
+				#quiz .panel .question input {
+					display:none;
+				}
+				
+				.lt-ie9 #quiz .panel .question input {
+					display:block;
+					float:left;
+					margin:10px 0 0 20px;
+				}
+				
+				#quiz .panel .question .nextbutton, #quiz .panel .question .lastbutton {
+					background: black;
+					background: rgba(0,0,0,0.7);
+					color: white;
+					cursor: pointer;
+					font-family: 'WWFRegular', Arial, sans-serif;
+					font-size: 1.2em;
+					position: absolute;
+					text-align: center;
+				}
+					
+					#quiz .panel .question .nextbutton { width:100px; height: 30px; top:150px; right:-70px; opacity:0; padding-top: 70px; }
+						.lt-ie9 #quiz .panel .question .nextbutton { display:none; }
+						#quiz .panel .question .nextbutton:hover { background: rgba(0,0,0,0.85); height:35px; padding-top:75px; top:145px; right:-75px; width:110px; }
+						
+					#quiz .panel .question .lastbutton { width:40px; height: 40px; top:170px; left:10px; opacity:1; padding:0; text-indent: -9999px; }
+						#quiz .panel .question .lastbutton:hover { width:46px; height: 46px; top:167px; left:7px; opacity:1; padding:0; background: rgba(0,0,0,0.85); }
+						
+						.lt-ie9 #quiz .panel .question .lastbutton { display:none; }
+
+				#quiz .panel .question .progress {
+					background: black;
+					background: rgba(0,0,0,0.7);
+					color: white;
+					font-family: 'Open Sans', sans-serif;
+					font-size: 1.2em;
+					margin-left: -25px;
+					padding: 5px 10px;
+					position: absolute;
+						bottom: 50px;
+						left: 50%;
+				}
+				
+					#quiz .panel .question .nextbutton.active { opacity:1; }
+						.lt-ie9 #quiz .panel .question .nextbutton.active { display:block; }
+					
+					#quiz .panel .question .nextbutton:before, #quiz .panel .question .lastbutton:before {
+						color: white;
+						display: inline-block;
+						font-family: FontAwesome;
+						font-style: normal;
+						font-weight: normal;
+						line-height: 1;
+						position: absolute;
+							top:0;
+						text-align: center;
+						-webkit-font-smoothing: antialiased;
+							-moz-osx-font-smoothing: grayscale;
+						width: 90%;
+					}
+					
+						#quiz .panel .question .nextbutton:before {content: "\f105"; font-size: 4em; right:0; }
+							#quiz .panel .question .nextbutton:hover:before { top: 5px; }
+						
+						#quiz .panel .question .lastbutton:before {content: "\f104"; font-size: 2em; left:0; text-indent: 0; }
+							#quiz .panel .question .lastbutton:hover:before { top: 3px; }
+							
+			.shareme {
+				background: white;
+				width: 54%;
+				padding: 10px 3%;
+				border-top: #c8c8c8 2px solid;
+				border-bottom: #c8c8c8 2px solid;
+			}
+			
+				.shareme p {
+					font-family: 'WWFRegular', Arial, sans-serif;
+					font-size: 1.65em;
+					font-weight: 400;
+					margin: 0.1em 0.5em 0 0;
+					line-height: 1.3em !important;
+					padding: 0;
+					padding-bottom: 0 !important;
+					float: left;
+				}
+				
+				.shareme a.socialbutton {
+					display: inline-block;
+					width: 2em;
+					height: 2em;
+					padding: 0;
+					position: relative;
+					margin: 0.1em 0 0 0.1em;
+					border-radius: 1em;
+				}
+				
+					.shareme a.socialbutton:after {
+						display: inline-block;
+						font-size: 1.3em;
+						font-family: FontAwesome;
+						font-style: normal;
+						font-weight: normal;
+						line-height: 1;
+						position: absolute;
+							top: 50%;
+							left: 0;
+						margin-top: -0.5em;
+						width: 100%;
+						text-align: center;
+						-webkit-font-smoothing: antialiased;
+						-moz-osx-font-smoothing: grayscale;
+						color: white;
+					}
+					
+				a#facebookshare { background: #3b5998; }
+					a#facebookshare:after { content: "\f09a"; }
+				
+				a#twittershare { background: #00aced; }
+					a#twittershare:after { content: "\f099"; }
+				
+				a#googleshare { background: #dd4b39; }
+					a#googleshare:after { content: "\f0d5"; }
+
+					
+	.actionspanel {
+		background: #FDBC5F;
+		color: white !important;
+		height:0;
+		margin: 0 0 20px;
+		overflow: hidden;
+		padding:0px 5%;
+		width:90%;
+	}
+	
+		.actionspanel h2 {
+			color: white !important;
+			font-size: 2em;
+		}
+		
+		.actionspanel p, .actionspanel .third {
+			float:left;
+			margin:0;
+			padding:10px 2%;
+			width:29%;
+		}
+		
+		.actionspanel p { font-size: 1.3em; }
+		
+		.actionspanel a.adoptpanel {
+			width: 100%;
+			background: white;
+			display: block;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.actionspanel a.adoptpanel img {
+			margin: 0 !important;
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+		
+		.actionspanel a.adoptpanel h4 {
+			padding: 5px;
+			font-size: 2em;
+			text-align: center;
+			color: #d8682a;
+		}
+		
+		.actionspanel a.wwf_button {
+			display: block;
+			background: white !important;
+			color: #d8682a;
+			border-bottom-color: black;
+			font-family: 'WWFRegular', Arial, sans-serif;
+			margin-bottom: 20px !important;
+		}
+		
+		.actionspanel a.wwf_button.buttonone:after {
+			border-color: #d8682a;
+		}
+
+					
+	.actionspanel.activate {
+		padding:20px 5%;
+		height:auto;
+	}
+	
+	@media (max-width: 961px){
+			
+		.shareme p { width:100%; }
+	
+	}
+	
+	@media (max-width: 935px){
+
+		#quiz .panel .question { width:54%; }
+		#quiz .panel .image { width:40%; }
+
+		#quiz .panel .question label, #quiz .panel .question input[type="radio"]:checked + label {
+			margin-left:5%;
+			margin-right:5%;
+			width: 84%;
+			z-index: 1;
+		}
+		#quiz .panel .question input[type="radio"]:checked + label {
+			font-size: 1.2em;
+			padding-top:0.85em;
+			padding-bottom:0.85em;
+			margin-top: -0.4em;
+			margin-bottom: -0.4em;
+		}
+		
+		#quiz .panel .question .nextbutton, #quiz .panel .question .nextbutton:hover,#quiz .panel .question .lastbutton, #quiz .panel .question .lastbutton:hover {
+			height: 30px;
+			margin-top: 10px;
+			padding-top:10px;
+			position: relative;
+				top: 0;
+			text-indent: 0;
+			width: 44%;
+		}
+		
+			#quiz .panel .question .nextbutton, #quiz .panel .question .nextbutton:hover { float: right; margin-right: 5%; right: 0; }
+			#quiz .panel .question .lastbutton, #quiz .panel .question .lastbutton:hover { float: left; margin-left: 5%; left:0; }
+		
+		#quiz .panel .question .nextbutton:before, #quiz .panel .question .lastbutton:before { display:none; }
+		
+		
+			
+	}
+	
+	@media (max-width: 535px){
+	
+		#quiz { height:640px; }
+
+		.shareme, #quiz .panel .question { width:94%; }
+		#quiz .panel .image { width:100%; height: 200px;}
+		
+		.enews label { width: 30%; }			
+		.enews input[type="text"], .enews input[type="email"] { width: 44%; }
+		
+		.actionspanel p { width:96%; }
+		.actionspanel .third { width:45%; }
+		
+	}
+	
+	.transition {
+		transition: all 0.3s linear;
+	}
+	
+	.slowtransition {
+		transition: all 0.6s linear;
+	}
+	
+</style>
+
+<script>
+
+	$(document).ready(function(){
+	
+		var thisurl = "http://www.wwf.org.uk" + window.location.pathname;
+		var action = '<h2>Sign up to Wear It Wild on Friday 5 June</h2><iframe src="https://bsd.wwf.org.uk/page/s/wear-it-wild" width="100%" height="600px"></iframe>';
+
+		//console.log(pathname);
+
+		/*$('label').click(function(){
+			$(this).siblings('.nextbutton').addClass('active');
+		})*/
+		
+		var completed = 1,
+			totalpanels = $('#quiz .panel').length - 2;
+		
+		progresscalc();
+		
+		$('.nextbutton').click(function(){
+			$('.panel.current').removeClass('current').addClass('completed').next('.panel').addClass('current');
+			completed++;
+			progresscalc();
+		})
+		
+		$('.lastbutton').click(function(){
+			$('.panel.current').removeClass('current').prev('.panel.completed').removeClass('completed').addClass('current');
+			completed--;
+			progresscalc();
+		})
+		
+		var possible_results = [
+			{
+				name: "Timid",
+				//THE ANIMALS CHARACTERISTICS BY WHICH ITS MEASURED:
+				movie: 10, //COMEDY-VALUE
+				extremeness: 10,
+				sportiness: 10,
+				colourfulness: 10,
+				food: 10,
+				//THE SCORE IT GETS COMPARED TO THE QUIZ TAKER:
+				similarity: 0,
+				//BITS FOR THE RESULTS PANEL:
+				desc: "You might be a little on the shy-side but that doesn't mean you're animal-spirit doesn't burn any less strong than other people.<br><br> Why not slip on a tiger print tie or <a href='https://www.youtube.com/watch?v=y3u_9FPs0aA' target='_blank'>paint your nails with cheetah spots</a>  on Friday 5 June.",
+				img: "http://assets.wwf.org.uk/img/original/timid.jpg",
+				imgcopyright: "WWF",
+				action: action 
+			},
+			{
+				name: "Untamed",
+				//THE ANIMALS CHARACTERISTICS BY WHICH ITS MEASURED:
+				movie: 30, //COMEDY-VALUE
+				extremeness: 30,
+				sportiness: 30,
+				colourfulness: 30,
+				food: 30,
+				//THE SCORE IT GETS COMPARED TO THE QUIZ TAKER:
+				similarity: 0,
+				//BITS FOR THE RESULTS PANEL:
+				desc: "You don't always let your wild-side show... but when you do you do it in style!<br><br> This Friday 5 June, why not slip on your wildest-print t-shirt, animal-themed socks or some funky accessories for Wear it Wild?",
+				img: "http://assets.wwf.org.uk/img/original/untamed.jpg",
+				imgcopyright: "WWF",
+				action: action 
+			},
+			{
+				name: "Outgoing",
+				//THE ANIMALS CHARACTERISTICS BY WHICH ITS MEASURED:
+				movie: 50, //COMEDY-VALUE
+				extremeness: 50,
+				sportiness: 50,
+				colourfulness: 50,
+				food: 50,
+				//THE SCORE IT GETS COMPARED TO THE QUIZ TAKER:
+				similarity: 0,
+				//BITS FOR THE RESULTS PANEL:
+				desc: "Bold, confident and brilliant - you're about as outgoing as they come!<br><br> Celebrate Wear It Wild on Friday 5 June by <a href='https://www.youtube.com/watch?v=W7Iv7Qdtbeo' target='_blank'>turning your hair into a mane</a> or roaring into your office in a leopard dress or trousers.",
+				img: "http://assets.wwf.org.uk/img/original/outgoing.jpg",
+				imgcopyright: "WWF",
+				action: action 
+			},
+			{
+				name: "Fierce",
+				//THE ANIMALS CHARACTERISTICS BY WHICH ITS MEASURED:
+				movie: 80, //COMEDY-VALUE
+				extremeness: 80,
+				sportiness: 80,
+				colourfulness: 80,
+				food: 80,
+				//THE SCORE IT GETS COMPARED TO THE QUIZ TAKER:
+				similarity: 0,
+				//BITS FOR THE RESULTS PANEL:
+				desc: "Wild through and through - you're not afraid to let your animal-side show... which is what we love!<br><br> This Friday 5 June why not <a href='https://www.youtube.com/watch?v=a8Maug8u_kg&list' target='_blank'>paint your face like a panda</a>, slip on an animal costume or just head into the office in head-to-toe animal print?",
+				img: "http://assets.wwf.org.uk/img/original/fierce.jpg",
+				imgcopyright: "WWF",
+				action: action 
+			},
+			{
+				name: "Feral",
+				//THE ANIMALS CHARACTERISTICS BY WHICH ITS MEASURED:
+				movie: 100, //COMEDY-VALUE
+				extremeness: 100,
+				sportiness: 100,
+				colourfulness: 100,
+				food: 100,
+				//THE SCORE IT GETS COMPARED TO THE QUIZ TAKER:
+				similarity: 0,
+				//BITS FOR THE RESULTS PANEL:
+				desc: "You are an animal at heart and are about as wild as they come!<br><br> Why not celebrate Wear It Wild by <a href='https://www.youtube.com/watch?v=nSRe3WayY1M' target='_blank'>wearing a onesie to work</a>, run wild in a gorilla costume or bake some panda-shaped cookies!",
+				img: "http://assets.wwf.org.uk/img/original/feral.jpg",
+				imgcopyright: "WWF",
+				action: action 
+			},
+		],
+		me = {
+			movie: 0, //COMEDY-VALUE
+			extremeness: 0,
+			sportiness: 0,
+			colourfulness: 0
+		};
+			
+		$('#quiz input:radio').change(function(){
+			$(this).siblings('.nextbutton').addClass('active');
+			this_value = $(this).val(),
+			this_aspect = $(this).attr('name');
+			me[this_aspect] = this_value;
+		});
+			
+		$('#calc').click(function(){ 
+			comparison();
+			$('.panel.current').removeClass('current').addClass('completed').next('.panel').addClass('current'); 
+		});  
+		
+		function comparison(){
+			var winner = "", winning_score = "1000000000000000000";
+			for(i=0;i<possible_results.length;i++){
+				direct_comparison(i,'movie'); 
+				direct_comparison(i,'extremeness'); 
+				direct_comparison(i,'sportiness');
+				direct_comparison(i,'colourfulness'); 
+				direct_comparison(i,'food');
+			
+				if( possible_results[i]['similarity'] < winning_score ){
+					winning_score = possible_results[i]['similarity'],
+					winnerno = i;
+				} else if( possible_results[i]['similarity'] === winning_score ){
+					if( Math.floor((Math.random() * 10) + 1) > 5 ){
+						winning_score = possible_results[i]['similarity'],
+						winnerno = i;	
+					}
+				}
+			}
+			
+			//console.log(possible_results);
+			
+			$('#result').empty().append(possible_results[winnerno]['name']);
+			$('#socialresult').empty().append(possible_results[winnerno]['name']);
+			$('.resultspanel #desc').empty().append(possible_results[winnerno]['desc']);
+			$('.resultspanel #finalimage').attr('style','background:url("' + possible_results[winnerno]['img'] + '") 50% 50%; background-size:cover; ');
+			$('.resultspanel #finalimage').append('<p class="copyright">© ' + possible_results[winnerno]['imgcopyright'] + '</p>');
+			$('.actionspanel').addClass('activate').empty().append(possible_results[winnerno]['action']);
+			$('#facebookshare').attr('href','https://www.facebook.com/sharer/sharer.php?u=' + thisurl + '?result=' + winnerno);
+			var tweetlink = "https://twitter.com/home?status=I'm%20" + possible_results[winnerno]['name'] + ".%20Take%20WWF's%20'How%20wild%20are%20you%20quiz?'%20quiz%20to%20discover%20how%20ferocious%20you%20really%20are%20today.%20" + thisurl;
+			$('#twittershare').attr('href',tweetlink );
+			$('#googleshare').attr('href','https://plus.google.com/share?url=' + thisurl);
+			//console.log(me);
+		};
+	
+		function direct_comparison(number,aspect){
+			possible_results[number]['similarity'] += Math.abs(possible_results[number][aspect] - me[aspect]);
+		}
+		
+		function progresscalc(){
+			$('.progress').remove();
+			if( completed <= totalpanels ){
+				$('.panel.current .question').prepend('<div class="progress">' + completed + ' of ' + totalpanels + '</div>');
+			} 
+		}
+		
+		$('a#finishit').click(function(){ _gaq.push(['_trackEvent', 'Quiz', 'How wild are you', 'Finished it',null,true]); });
+		
+		$('a#skipit').click(function(){ _gaq.push(['_trackEvent', 'Quiz', 'How wild are you', 'Skip enews',null,true]); });
+		
+		// we have javascript, so we will be requesting a json version of the response
+		$('#email_signup_responseType_quizform').val("json");
+		$('#email_form_quizform').ajaxForm({
+			dataType: "json",
+			success: function(d) {
+				// although we submitted the form successfully, and got a response
+				// from the server, the response may indicate that there were
+				// validation errors
+				if (d.status == "ERROR") {
+					alert("Oh no! Somethings gone a little wrong here..." +
+					(d.errors.length > 0 ? ": " + d.errors[0] : ""));
+					return;
+				}
+				comparison();
+				$('.panel.current').removeClass('current').addClass('completed').next('.panel').addClass('current');
+				_gaq.push(['_trackEvent', 'Quiz', 'Which animal are you', 'Enews sign up',null,true]);
+			
+			},
+			error: function() {
+				alert("We are sorry, we could not submit the form at this time, " +
+				"please try again");
+			}
+		});
+	
+	});
+		
+	/* called in the onclick attribute for the enews signup form */
+	function chkemailform() {
+		if (isBlank_new(document.email_form_quizform.email_signup_email_quizform, ' ',
+			'Please enter your email address') == false) {
+			return false;
+			}
+		if (isValidEmail_new(document.email_form_quizform.email_signup_email_quizform,
+		' Email address',
+		'Please double check your email address as there ' +
+		'seems to be an error.')
+		== false) {
+			return false;
+		}
+	}
+
+</script> 
